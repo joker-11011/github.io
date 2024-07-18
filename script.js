@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const output = document.getElementById('output');
 
     const commands = {
-        help: 'Available commands: help, about, skills, education, experience, certificates, contact, clear',
-        about: 'Eeshan Pradeep Manja: Data Scientist, highly motivated and eager to start a career.',
+        ls: 'Available commands: about, skills, education, experience, certificates, contact, clear',
+        about: 'Hello! I\'m a Data Scientist.\nI hold a Bachelor degree in Electronics and Communications from the National Institute of Engineering, where I developed a strong foundation in data science methodologies and techniques. ',
         skills: 'C, C++, Python, JavaScript, AWS Cloud, SQL, HTML, CSS, Shell Scripting',
         education: `
 <h>* commit Bachelor Degree</h>
@@ -18,20 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
 | School: Sharada PU College, Mangaluru
 | Date:   2020
 |
-|     - 89.16%
+|     - Percentage: 89.16%
 |
 <h>* commit High School</h>
-| School: Sri Satya Sai Loka Seva Vidya Kendra, Alike, D.K
-| Date:   2018
-|
-|     - 79%
+  School: Sri Satya Sai Loka Seva Vidya Kendra, Alike, D.K
+  Date:   2018
+ 
+      - Percentage: 79%
         `,
         experience: `
-<h>* Role: Data Scientist</h>
+<h>* commit Data Scientist</h>
 | Company: Knowledge Foundry Business Solutions
 | Date:   July 2024 
 |        
-<h>* Role: Intern</h>
+<h>* commit Intern</h>
 | Company: Knowledge Foundry Business Solutions
 | Date:   March 2024
 |
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 |     - Worked on different AWS cloud services.
 |     - Gained hands-on experience in various stages of project development, from conceptualization to deployment.
 |
-<h>* Role: IEEE Photonics Student Intern</h>
+<h>* commit IEEE Photonics Student Intern</h>
   Company: National Institute of Technology, Suratkal
   Date:   June 2022
  
@@ -88,5 +88,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Display welcome message
-    output.innerHTML = "Welcome to Eeshan Pradeep Manja's Portfolio\nType 'help' to see the list of available commands.\n";
+    output.innerHTML = "Welcome to Eeshan Pradeep Manja's Portfolio\nType 'ls' to see the list of available commands.\n";
 });
