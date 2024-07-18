@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const output = document.getElementById('output');
 
     const commands = {
-        help: 'Available commands: help, about, skills, education, experience, contact, clear',
+        help: 'Available commands: help, about, skills, education, experience, certificates, contact, clear',
         about: 'Eeshan Pradeep Manja: Data Scientist, highly motivated and eager to start a career.',
         skills: 'C, C++, Python, JavaScript, AWS Cloud, SQL, HTML, CSS, Shell Scripting',
         education: `
