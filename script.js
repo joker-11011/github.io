@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 output.innerHTML += `\n$ ${command}\n${commands[command]}\n`;
             }
         } else {
-            output.innerHTML += `\n$ ${command}\nCommand not found. Type 'help' for a list of available commands.\n`;
+            output.innerHTML += `\n$ ${command}\nCommand not found. Type 'ls' for a list of available commands.\n`;
         }
         output.scrollTop = output.scrollHeight;
     }
