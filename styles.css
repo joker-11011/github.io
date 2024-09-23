@@ -34,23 +34,61 @@ body {
 }
 
 #command-input {
-    flex: 1;
-    background: none;
-    border: none;
-    color: #ffff;
-    font-family: monospace;
-    outline: none;
+    caret-color: transparent;
+    position: relative;
 }
 
-a {
-    color: #ffffff;  /* Set link color to white */
-    text-decoration: none;  /* Remove underline from links */
+#command-input::before {
+    content: '_'; /* Change this to '|' for a thick vertical bar */
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    animation: blink 1s step-end infinite;
 }
 
-a:hover {
-    text-decoration: underline;  /* Add underline on hover */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
 
-h {
-    color: #ecec41;
+.hidden {
+    display: none;
+}
+
+#game-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background-color: black;
+    border: 2px solid #00ff00;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 2px;
+    margin: 20px auto;
+}
+
+#pacman {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+}
+
+.wall {
+    background-color: blue;
+}
+
+.food {
+    background-color: yellow;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
