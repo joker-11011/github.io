@@ -55,40 +55,15 @@ body {
     }
 }
 
-.hidden {
-    display: none;
+a {
+    color: #ffffff;  /* Set link color to white */
+    text-decoration: none;  /* Remove underline from links */
 }
 
-#game-container {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    background-color: black;
-    border: 2px solid #00ff00;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    gap: 2px;
-    margin: 20px auto;
+a:hover {
+    text-decoration: underline;  /* Add underline on hover */
 }
 
-#pacman {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    font-size: 40px;
-}
-
-.wall {
-    background-color: blue;
-}
-
-.food {
-    background-color: yellow;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+h {
+    color: #ecec41;
 }

@@ -1,11 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const commandInput = document.getElementById('command-input');
     const output = document.getElementById('output');
-    const gameContainer = document.getElementById('game-container');
-    const pacman = document.getElementById('pacman');
 
     const commands = {
-        ls: 'Available commands: about, skills, education, experience, certificates, contact, clear, pacman',
+        ls: 'Available commands: about, skills, education, experience, certificates, contact, clear',
         about: 'Hello there! I\'m Eeshan.\nI hold a Bachelor degree in Electronics and Communications from the National Institute of Engineering. ',
         skills: 'C, C++, Python, JavaScript, AWS Cloud, SQL, HTML, CSS, Shell Scripting, Cadence ( analog design )',
         education: `
@@ -54,51 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
         `,
 
         contact: 'Phone: <a href="tel:+919483975250">+91 9483975250</a> Email: <a href="mailto:eeshanmanja2@gmail.com">eeshanmanja2@gmail.com</a>',
-        clear: '',
-        pacman: 'Starting the Pacman game. Use arrow keys to move!'
+        clear: ''
     };
-
-    let pacmanPosition = { x: 0, y: 0 };
-    const gridSize = 10;
-    const walls = [];
-    const foods = [];
-
-    function initGame() {
-        gameContainer.classList.remove('hidden');
-        gameContainer.innerHTML = '';
-        walls.length = 0;
-        foods.length = 0;
-
-        for (let i = 0; i < gridSize * gridSize; i++) {
-            const cell = document.createElement('div');
-            if (Math.random() < 0.2) {
-                cell.classList.add('wall');
-                walls.push(i);
-            } else {
-                cell.classList.add('food');
-                foods.push(i);
-            }
-            gameContainer.appendChild(cell);
-        }
-        movePacman(pacmanPosition.x, pacmanPosition.y);
-    }
-
-    function movePacman(x, y) {
-        pacman.style.transform = `translate(${x * 40}px, ${y * 40}px)`;
-    }
-
-    function isWall(x, y) {
-        const index = y * gridSize + x;
-        return walls.includes(index);
-    }
-
-    function isFood(x, y) {
-        const index = y * gridSize + x;
-        if (foods.includes(index)) {
-            foods.splice(foods.indexOf(index), 1);
-            gameContainer.children[index].classList.remove('food');
-        }
-    }
 
     commandInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
@@ -106,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             handleCommand(command);
             commandInput.value = '';
         } else if (event.key === 'Tab') {
-            event.preventDefault();
+            event.preventDefault(); // Prevent default tab behavior
             autoCompleteCommand();
         }
     });
@@ -115,14 +70,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (commands.hasOwnProperty(command)) {
             if (command === 'clear') {
                 output.innerHTML = '';
-            } else if (command === 'pacman') {
-                output.innerHTML += `\n$ ${command}\n${commands[command]}\n`;
-                initGame();
             } else {
                 output.innerHTML += `\n$ ${command}\n${commands[command]}\n`;
             }
         } else {
-            output.innerHTML += `\n$ ${command}\nCommand not found. Type 'ls' for a list of available commands.\n`;
+            output.innerHTML += `\n$ ${command}\nCommand not found. Type 'help' for a list of available commands.\n`;
         }
         output.scrollTop = output.scrollHeight;
     }
@@ -134,28 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
             commandInput.value = matchingCommands[0];
         }
     }
-
-    document.addEventListener('keydown', (event) => {
-        let newX = pacmanPosition.x;
-        let newY = pacmanPosition.y;
-
-        if (event.key === 'ArrowUp' && newY > 0) {
-            newY--;
-        } else if (event.key === 'ArrowDown' && newY < gridSize - 1) {
-            newY++;
-        } else if (event.key === 'ArrowLeft' && newX > 0) {
-            newX--;
-        } else if (event.key === 'ArrowRight' && newX < gridSize - 1) {
-            newX++;
-        }
-
-        if (!isWall(newX, newY)) {
-            pacmanPosition = { x: newX, y: newY };
-            movePacman(newX, newY);
-            isFood(newX, newY);
-        }
-    });
-
 
     // Display welcome message
     output.innerHTML = "Welcome to Eeshan Pradeep Manja's Portfolio\nType 'ls' to see the list of available commands.\n";
