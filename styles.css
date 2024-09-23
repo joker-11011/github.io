@@ -34,25 +34,12 @@ body {
 }
 
 #command-input {
-    caret-color: transparent;
-    position: relative;
-}
-
-#command-input::before {
-    content: '|'; /* Change this to '|' for a thick vertical bar */
-    font-size: 20px;
-    color: white;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
+    flex: 1;
+    background: none;
+    border: none;
+    color: #ffff;
+    font-family: monospace;
+    outline: none;
 }
 
 a {
