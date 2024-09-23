@@ -39,7 +39,7 @@ body {
 }
 
 #command-input::before {
-    content: '_'; /* Change this to '|' for a thick vertical bar */
+    content: '|'; /* Change this to '|' for a thick vertical bar */
     font-size: 20px;
     color: white;
     position: absolute;
